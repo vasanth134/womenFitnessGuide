@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose Your Workout Category</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <img src="./images/CategoryBG.jpg" alt="background image" srcset="" class="background">
+  <header class="header">
+    <div class="logo-container">
+      <img src="images/logo.png" alt="App Logo" class="logo">
+    </div>
+    <div class="profile-container">
+      <img src="images/placeholder-profile.png" alt="User Profile" class="profile-img">
+      <span class="profile-name">User Profile</span>
+    </div>
+  </header>
+
+  <main class="category-main">
+    <h1>Select Your Workout Goal</h1>
+    <div class="category-container">
+      <div class="category-card" onclick="selectCategory('Bulk')">
+        <img src="images/bulk.png" alt="Bulk Workout">
+        <h2>Bulk</h2>
+      </div>
+      <div class="category-card" onclick="selectCategory('Weight Loss')">
+        <img src="images/weight_loss.png" alt="Weight Loss Workout">
+        <h2>Weight Loss</h2>
+      </div>
+      <div class="category-card" onclick="selectCategory('General Fitness')">
+        <img src="images/general_fitness.png" alt="General Fitness">
+        <h2>General Fitness</h2>
+      </div>
+    </div>
+
+    <button id="nextBtn" class="btn" disabled onclick="goToNextPage()">Next</button>
+  </main>
+
+  <script>
+    let selectedCategory = '';
+
+    function selectCategory(category) {
+      selectedCategory = category;
+      document.querySelectorAll('.category-card').forEach(card => card.classList.remove('selected'));
+      document.querySelector(`[onclick="selectCategory('${category}')"]`).classList.add('selected');
+      document.getElementById('nextBtn').disabled = false;
+    }
+
+    function goToNextPage() {
+      if (selectedCategory) {
+        window.location.href = 'home.html'; // Page 4
+      }
+    }
+  </script>
+</body>
+</html>
