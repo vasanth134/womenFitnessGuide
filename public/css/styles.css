@@ -394,6 +394,12 @@ input[type="number"] {
   margin-top: 20px;
 }
 
+.content-container h2{
+   text-align: center;
+   font-family:Georgia, 'Times New Roman', Times, serif;
+   font-weight: bolder;
+   font-size: 40px;
+}
 /* Typography */
 h2, h3 {
   color: #ff9800;
