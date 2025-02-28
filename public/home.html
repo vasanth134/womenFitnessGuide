@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Women's Health Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="Logo" class="logo">
+        </div>
+        <div class="profile-container">
+            <img src="assets/profile.jpg" alt="Profile" class="profile-img">
+            <span class="profile-name">User</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <ul>
+                <li class="category" data-category="pcos">Polycystic Ovary Syndrome (PCOS)</li>
+                <li class="category" data-category="pcod">Polycystic Ovarian Disease (PCOD)</li>
+                <li class="category" data-category="fibroids">Fibroids</li>
+                <li class="category" data-category="thyroid">Thyroid Disorders</li>
+                <li class="category" data-category="breast-health">Breast Health Issues, Breast Cancer</li>
+                <li class="category" data-category="diabetes">Diabetes</li>
+                <li class="category" data-category="weight-metabolism">Weight and Metabolism Issues</li>
+            </ul>
+        </nav>
+
+        <!-- Content Section -->
+        <main class="content">
+            <h2>Welcome to Women's Health Tracker</h2>
+            <p>Select a category from the sidebar to learn more.</p>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const categories = document.querySelectorAll(".category");
+
+            categories.forEach(category => {
+                category.addEventListener("click", () => {
+                    const selectedCategory = category.dataset.category;
+                    localStorage.setItem("selectedCategory", selectedCategory);
+                    window.location.href = `${selectedCategory}.html`; // Redirect to selected category page
+                });
+            });
+
+            // Load the first category content by default
+            const defaultCategory = "pcos"; 
+            window.location.href = `${defaultCategory}.html`;
+        });
+    </script>
+</body>
+</html>
