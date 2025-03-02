@@ -60,9 +60,14 @@
               <iframe width="560" height="315" src="https://www.youtube.com/embed/8UiUZP87Voo?si=sRqHjL1MnPCrGy90" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
-            <button class="completed-btn">Mark as Completed</button>
+            <!-- <button class="completed-btn">Mark as Completed</button> -->
+            <button class="getStarted-btn">Get Started</button> 
         </div>
     </div>
 
 </body>
+<script>
+    document.querySelector('.getStarted-btn').addEventListener('click', function() {
+        window.location.href = './workouts/thyroidWorkout.html'; // Change to your next page URL
+    });</script>
 </html>

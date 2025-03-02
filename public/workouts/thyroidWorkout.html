@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thyroid Workout Plan</title>
+   <style>
+      body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Header */
+        .main-header {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+        
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            padding-right: 20px;
+        }
+        
+        .header-nav ul li {
+            margin: 0 15px;
+        }
+        
+        .header-nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .header-nav ul li a:hover {
+            color: #ff4081;
+        }
+        
+        /* Main Container */
+        .main-container {
+            display: flex;
+            width: 90%;
+            margin-top: 80px;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: rgba(30, 30, 30, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        
+        .sidebar ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            background: rgba(50, 50, 50, 0.7);
+            transition: 0.3s;
+        }
+        
+        .sidebar ul li a:hover {
+            background: #ff4081;
+        }
+        
+        /* Content Container */
+        .content-container {
+            flex: 1;
+            background: rgba(40, 40, 40, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+        
+        h2 {
+            color: #ff4081;
+        }
+        
+        h3 {
+            margin-top: 20px;
+        }
+        
+        /* Weekly Schedule Buttons */
+        .week-schedule {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .day-btn {
+            background: #333;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .day-btn:hover {
+            background: #ff4081;
+        }
+        
+        /* Workout and Diet Details */
+        #workout-details {
+            background: rgba(50, 50, 50, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        ul li {
+            background: rgba(60, 60, 60, 0.7);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        
+        /* Completed Button */
+        .completed-btn {
+            background: #ff4081;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .completed-btn:hover {
+            background: #d1366e;
+        }
+   </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">Women's Health Tracker</div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="../home.html">Home</a></li>
+                <li><a href="../dashboard.html">Dashboard</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="main-container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="pcosWorkout.html">PCOS Workout</a></li>
+                <li><a href="pcodWorkout.html">PCOD Workout</a></li>
+                <li><a href="fibroidsWorkout.html">Fibroids Workout</a></li>
+                <li><a href="thyroidWorkout.html" class="active">Thyroid Workout</a></li>
+                <li><a href="breastWorkout.html">Breast Workout</a></li>
+                <li><a href="diabetesWorkout.html">Diabetes Workout</a></li>
+                <li><a href="weightandMetabolismWorkout.html">Weight & Metabolism Workout</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-container">
+            <h2>Thyroid Workout Plan</h2>
+            <p>Follow this structured workout plan to manage Thyroid Disorders effectively.</p>
+
+            <div class="week-schedule">
+                <button class="day-btn" onclick="showWorkout('monday')">Monday</button>
+                <button class="day-btn" onclick="showWorkout('tuesday')">Tuesday</button>
+                <button class="day-btn" onclick="showWorkout('wednesday')">Wednesday</button>
+                <button class="day-btn" onclick="showWorkout('thursday')">Thursday</button>
+                <button class="day-btn" onclick="showWorkout('friday')">Friday</button>
+                <button class="day-btn" onclick="showWorkout('saturday')">Saturday</button>
+                <button class="day-btn" onclick="showWorkout('sunday')">Sunday</button>
+            </div>
+
+            <div id="workout-details">
+                <h3>Workout Plan for <span id="day-name">Monday</span></h3>
+                <ul id="workout-list"></ul>
+
+                <h3>Diet Plan</h3>
+                <ul id="diet-list"></ul>
+            </div>
+
+            <button class="completed-btn" onclick="markCompleted()">Mark as Completed</button>
+            <!-- <button class="completed-btn" onclick="markCompleted('Monday')">Mark as Completed</button> -->
+
+        </div>
+    </div>
+
+</body>
+<script>
+
+    const workoutPlans = {
+        monday: {
+            workout: ["🏃 Cardio - 30 min walking", "💪 Strength Training - 3 sets squats", "🧘 Yoga - 15 min meditation"],
+            diet: ["🍎 Breakfast: Oats with fruits", "🥗 Lunch: Grilled chicken with quinoa", "🍵 Dinner: Vegetable soup"]
+        },
+        tuesday: {
+            workout: ["🏋️ HIIT - 20 min", "💪 Strength Training - 3 sets push-ups", "🧘 Yoga - 20 min relaxation"],
+            diet: ["🍎 Breakfast: Smoothie with banana", "🥗 Lunch: Lentil curry", "🍵 Dinner: Stir-fried tofu"]
+        }
+    };
+    
+    function showWorkout(day) {
+        document.getElementById('day-name').innerText = day.charAt(0).toUpperCase() + day.slice(1);
+        document.getElementById('workout-list').innerHTML = workoutPlans[day].workout.map(item => `<li>${item}</li>`).join('');
+        document.getElementById('diet-list').innerHTML = workoutPlans[day].diet.map(item => `<li>${item}</li>`).join('');
+    }
+    
+    document.addEventListener("DOMContentLoaded", () => {
+    loadWorkoutStatus();
+});
+
+function markCompleted() {
+    // Get the selected day's name from the displayed workout section
+    let selectedDay = document.getElementById("day-name").innerText;
+
+    if (!selectedDay) {
+        alert("Please select a day first!");
+        return;
+    }
+
+    // Retrieve workout data or initialize if empty
+    let workoutStats = JSON.parse(localStorage.getItem("workoutStats")) || {
+        Monday: 0,
+        Tuesday: 0,
+        Wednesday: 0,
+        Thursday: 0,
+        Friday: 0,
+        Saturday: 0,
+        Sunday: 0
+    };
+
+    // Update the count for the selected day
+    workoutStats[selectedDay] += 1;
+    localStorage.setItem("workoutStats", JSON.stringify(workoutStats));
+
+    alert(`${selectedDay} workout marked as completed!`);
+}
+
+
+// Load workout status when opening the workout page
+function loadWorkoutStatus() {
+    const selectedDay = document.getElementById("day-name").innerText;
+    let workoutData = JSON.parse(localStorage.getItem("workoutStats")) || {};
+
+    if (workoutData[selectedDay]) {
+        alert(`You've already completed the workout for ${selectedDay}!`);
+    }
+}
+
+    
+    </script>
+</html>

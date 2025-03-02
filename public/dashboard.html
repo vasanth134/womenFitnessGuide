@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Workout Statistics</title>
+<style>
+    /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #121212;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.header-nav ul li a {
+    font-weight: bolder;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.header-nav ul li a:hover,
+.header-nav ul li a.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ff4081;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Chart */
+canvas {
+    width: 100% !important;
+    height: 350px !important;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Button */
+#refreshStats {
+    background: #ff4081;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    margin-top: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#refreshStats:hover {
+    background: #e91e63;
+}
+
+</style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">Women's Health Tracker</div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <h2>Weekly Workout Statistics</h2>
+        <canvas id="workoutChart"></canvas>
+        <button id="refreshStats">Refresh Statistics</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let workoutData = JSON.parse(localStorage.getItem("workoutStats")) || {
+                Monday: 0,
+                Tuesday: 0,
+                Wednesday: 0,
+                Thursday: 0,
+                Friday: 0,
+                Saturday: 0,
+                Sunday: 0
+            };
+
+            const ctx = document.getElementById("workoutChart").getContext("2d");
+            let workoutChart = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: Object.keys(workoutData),
+                    datasets: [{
+                        label: "Completed Workouts",
+                        data: Object.values(workoutData),
+                        backgroundColor: [
+                            "#ff6384", "#36a2eb", "#ffce56", "#4bc0c0", "#9966ff", "#ff9f40", "#d9d9d9"
+                        ],
+                        borderColor: "#fff",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+            document.getElementById("refreshStats").addEventListener("click", function () {
+                let updatedWorkoutData = JSON.parse(localStorage.getItem("workoutStats")) || workoutData;
+                workoutChart.data.datasets[0].data = Object.values(updatedWorkoutData);
+                workoutChart.update();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Women's Health Tracker</title>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #1c1c1c;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(30, 30, 30, 0.9);
+    padding: 15px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4081;
+}
+
+.header-nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.header-nav ul li {
+    margin-left: 20px;
+}
+
+.header-nav ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+    font-weight: bolder;
+}
+
+.header-nav ul li a:hover, 
+.header-nav ul li a.active {
+    color: #ff4081;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(40, 40, 40, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.2);
+}
+
+/* Content Styling */
+.content-container h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ff4081;
+    text-align: center;
+}
+
+.content-container h3 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #ff79b0;
+}
+
+.content-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.content-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-container ul li {
+    padding: 8px 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.content-container ul li::before {
+    content: "✔";
+    color: #ff4081;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 15px;
+        margin: 30px 15px;
+    }
+
+    .header-nav ul {
+        flex-direction: column;
+    }
+
+    .header-nav ul li {
+        margin: 10px 0;
+    }
+}
+
+</style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">Women's Health Tracker</div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <div class="content-container">
+            <h2>About This Project</h2>
+            <p>
+                Women's Health Tracker is a web-based platform designed to help women manage their health conditions
+                by providing structured workout and diet plans. It focuses on conditions such as PCOS, PCOD, Fibroids, 
+                Thyroid Disorders, Breast Health Issues, Diabetes, and Weight Management.
+            </p>
+
+            <h3>How It Works</h3>
+            <p>
+                The platform offers a dedicated workout and diet plan for each health condition. Users can:
+            </p>
+            <ul>
+                <li>Navigate through different categories of health concerns.</li>
+                <li>Access structured workout and diet plans for each condition.</li>
+                <li>Mark their workouts as completed.</li>
+                <li>Track weekly progress through an interactive dashboard.</li>
+            </ul>
+            
+            <h3>Features</h3>
+            <ul>
+                <li>Condition-specific workout plans.</li>
+                <li>Daily and weekly tracking of completed workouts.</li>
+                <li>Interactive dashboard displaying user statistics.</li>
+                <li>User-friendly interface with smooth navigation.</li>
+            </ul>
+
+            <h3>Developer</h3>
+            <p>
+                This project was developed by <strong>Arthi</strong>, a passionate developer dedicated to creating digital solutions that improve lives. 
+                The goal of this platform is to provide an easy-to-use health tracking system that supports women in their fitness and wellness journeys.
+            </p>
+        </div>
+    </div>
+
+
+</body>
+</html>

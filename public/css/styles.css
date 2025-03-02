@@ -313,8 +313,10 @@ input[type="number"] {
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: #ff4081;
+  width: 100%;
 }
 
 .header-nav ul {
@@ -330,12 +332,13 @@ input[type="number"] {
 .header-nav ul li a {
   text-decoration: none;
   color: white;
+  font-weight: bolder;
   font-size: 16px;
   transition: 0.3s;
 }
 
 .header-nav ul li a:hover {
-  color: #ff9800;
+  color: #ff4081;
 }
 
 /* Main Layout */
@@ -402,7 +405,7 @@ input[type="number"] {
 }
 /* Typography */
 h2, h3 {
-  color: #ff9800;
+  color: #ff4081;
 }
 
 p, ul {
@@ -428,6 +431,7 @@ p, ul {
   width: 100%;
   padding: 15px;
   font-size: 18px;
+  font-weight: bolder;
   background: #ff9800;
   color: white;
   border: none;
@@ -438,4 +442,21 @@ p, ul {
 
 .completed-btn:hover {
   background: #e68900;
+}
+.getStarted-btn{
+  height: 50px;
+  width: 10%;
+  margin-left: 90%;
+  margin-top:1%;
+  background-color: rgb(0, 149, 255);
+  border: none;
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-weight: bolder;
+  font-size: large;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.getStarted-btn:hover{
+  background-color:#ff4081;
 }
