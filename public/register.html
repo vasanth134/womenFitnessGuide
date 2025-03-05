@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Women's Health Tracker</title>
+ <style>/* General Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        background: #121212; /* Dark background */
+        color: #fff; /* White text */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    
+    /* Header */
+    .main-header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1); /* Glassmorphic effect */
+        backdrop-filter: blur(10px);
+        padding: 15px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 50px;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #ff4081; /* Pink Accent */
+    }
+    
+    .header-nav ul {
+        list-style: none;
+        display: flex;
+    }
+    
+    .header-nav ul li {
+        margin: 0 15px;
+    }
+    
+    .header-nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        transition: 0.3s ease;
+    }
+    
+    .header-nav ul li a:hover {
+        color: #ff4081;
+    }
+    
+    /* Form Container */
+    .login-container {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        text-align: center;
+        width: 350px;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+    
+    .login-container h2 {
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        color: #ff4081;
+    }
+    
+    /* Input Fields */
+    .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    
+    .input-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+    
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        outline: none;
+    }
+    
+    .input-group input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Buttons */
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #ff4081;
+        border: none;
+        color: #fff;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    
+    button:hover {
+        background: #e60073;
+    }
+    
+    /* Register/Login Link */
+    .register-link {
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .register-link a {
+        color: #ff4081;
+        text-decoration: none;
+    }
+    
+    .register-link a:hover {
+        text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">Women's Health Tracker</div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create a password" required>
+            </div>
+            <button type="submit">Register</button>
+            <p class="register-link">Already have an account? <a href="login.html">Login</a></p>
+        </form>
+    </div>
+
+    <script >document.getElementById("registerForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+    
+        if (!name || !email || !password) {
+            alert("Please fill in all fields.");
+            return;
+        }
+    
+        // Store user details in localStorage
+        let userData = { name, email, password, isNewUser: true };
+        localStorage.setItem("user", JSON.stringify(userData));
+    
+        alert("Registration successful! Please login.");
+        window.location.href = "login.html";
+    });
+    </script>
+</body>
+</html>

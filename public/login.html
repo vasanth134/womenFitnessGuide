@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Women's Health Tracker</title>
+    <style>
+    /* Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        background: #1e1e1e; /* Dark background matching your theme */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    
+    /* Header Styling */
+    .main-header {
+        width: 100%;
+        background: #222;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .logo {
+        color: #ff4d79;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    
+    .header-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+    }
+    
+    .header-nav ul li {
+        display: inline;
+    }
+    
+    .header-nav ul li a {
+        text-decoration: none;
+        color: #ddd;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+    
+    .header-nav ul li a:hover {
+        color: #ff4d79;
+    }
+    
+    /* Login Box */
+    .login-container {
+        background: rgba(30, 30, 30, 0.9); /* Matching the dark theme */
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        width: 350px;
+        text-align: center;
+        margin-top: 80px;
+    }
+    
+    h2 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+    
+    .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    
+    label {
+        color: #fff;
+        font-size: 14px;
+    }
+    
+    input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 5px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+    }
+    
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: #ff4d79;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    button:hover {
+        background: #ff1a5c;
+    }
+    
+    .register-link {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #ccc;
+    }
+    
+    .register-link a {
+        color: #ff4d79;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>    
+</head>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">Women's Health Tracker</div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Login</button>
+            <p class="register-link">Don't have an account? <a href="register.html">Register</a></p>
+        </form>
+    </div>
+
+<script>
+   document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    // Get user data from localStorage
+    let storedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (!storedUser || storedUser.email !== email || storedUser.password !== password) {
+        alert("Invalid email or password. Try again.");
+        return;
+    }
+
+    alert("Login successful!");
+
+    // Check if the user is new
+    if (storedUser.isNewUser) {
+        storedUser.isNewUser = false; // Update status
+        localStorage.setItem("user", JSON.stringify(storedUser)); // Save updated data
+        window.location.href = "bmi.html"; // Redirect to BMI page
+    } else {
+        window.location.href = "dashboard.html"; // Redirect to Dashboard
+    }
+});
+
+
+</script>
+</body>
+</html>
