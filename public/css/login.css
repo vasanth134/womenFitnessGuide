@@ -1,0 +1,118 @@
+body {
+    background-image: url(../images/young-strong-woman-looking-directly-camera-raising-both-hands-showing-her-biceps-wearing-top-leggins-isolated-color-background-lady-with-perfect-body-ponytail.jpg);
+    background-position: center;
+    background-size: cover;
+margin-top: 300px;
+    color: #fff;
+    display: flex;
+justify-content: center;
+align-items: center;
+ flex-direction: column;
+ height: 100vh;
+    overflow: hidden;
+}
+
+.main-header {
+    width: 100vw;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4081;
+    width: 100%;
+    padding-left: 20px;
+  }
+  
+  .header-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+  }
+  
+  .header-nav ul li {
+    display: inline;
+  }
+  
+  .header-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  .header-nav ul li a:hover {
+    color: #ff4081;
+  }
+.login-container {
+    background: rgba(255, 255, 255, 0.347);
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    height: 300px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    position: relative;
+    bottom: 200px;
+    color: black;
+}
+
+.login-container h2 {
+    color: #ff4081;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #ff4081;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e60073;
+}
+
+.register-link {
+    margin-top: 10px;
+}
+
+.register-link a {
+    color: #ff4081;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

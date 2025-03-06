@@ -1,0 +1,199 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #1e1e1e;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid #ff4d6d;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4d6d;
+}
+
+.header-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.header-nav ul li {
+    display: inline;
+}
+
+.header-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.header-nav ul li a:hover {
+    color: #ff4d6d;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: 100%;
+    border-right: 2px solid #ff4d6d;
+    /* gap: 20px; */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+    
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    transition: 0.3s;
+    background-color: #ff4081;
+    border-radius: 20px;
+}
+
+.sidebar ul li a:hover {
+    background: #ff4d6d;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container {
+    margin-left: 270px;
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Workout Sections */
+h2 {
+    color: #ff4d6d;
+    font-size: 28px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* Week Schedule Buttons */
+.week-schedule {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.day-btn {
+    background: #ff4d6d;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.day-btn:hover {
+    background: #ff1f4a;
+}
+
+/* Workout Details */
+#workout-details {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+#workout-details h3 {
+    color: #ff4d6d;
+    font-size: 22px;
+}
+
+#workout-list, #diet-list {
+    list-style: none;
+    padding: 0;
+}
+
+#workout-list li, #diet-list li {
+    font-size: 16px;
+    line-height: 1.8;
+    padding: 5px 0;
+}
+
+/* Completed Button */
+.completed-btn {
+    display: block;
+    width: 100%;
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.completed-btn:hover {
+    background: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        padding: 15px;
+    }
+
+    .content-container {
+        margin-left: 220px;
+    }
+
+    .week-schedule {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .day-btn {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

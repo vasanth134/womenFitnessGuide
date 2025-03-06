@@ -7,21 +7,29 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
- <img src="./images/BMIbg.jpg" alt="background image" srcset="" class="background">    
-  <header class="header">
+  <img src="./images/BMIbg.jpg" alt="background image" class="background">    
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
     <div class="logo-container">
-      <img src="images/logo.png" alt="App Logo" class="logo">
+      <h1 class="logo">Women's Health Tracker</h1>
     </div>
-    <div class="profile-container">
-      <img src="images/placeholder-profile.png" alt="User Profile" class="profile-img">
-      <span class="profile-name">User Profile</span>
+
+    <!-- Profile Section -->
+    <div class="profile-container" onclick="toggleProfileMenu()">
+      <span class="profile-name" id="user-name">User Profile</span>
+      <div class="profile-menu" id="profile-menu">
+          <p id="display-username">Username</p>
+          <a href="dashboard.html">Dashboard</a>
+          <button onclick="logout()">Logout</button>
+      </div>
     </div>
   </header>
 
   <main class="bmi-main">
     <div class="bmi-form-wrapper">
-      <h1>BMI Input</h1>
-      <form id="bmiForm" action="category.html">
+      <h1>BMI Calculator</h1>
+      <form id="bmiForm">
         <div class="input-group">
           <label for="height">Height (cm)</label>
           <input type="number" id="height" name="height" placeholder="Enter your height" required>
@@ -30,16 +38,81 @@
           <label for="weight">Weight (kg)</label>
           <input type="number" id="weight" name="weight" placeholder="Enter your weight" required>
         </div>
-        <button type="submit" class="btn">Next</button>
+        <button type="submit" class="btn">Calculate BMI</button>
       </form>
+
+      <!-- BMI Display Section -->
+      <div id="bmi-result" class="bmi-result">
+        <p>Your BMI: <span id="bmi-value">--</span></p>
+        <p>Status: <span id="bmi-status">--</span></p>
+      </div>
     </div>
+    <button     class="categoriesPage" >Select Your category  ->></button>
   </main>
 
   <script>
+    
+    // Function to toggle the profile dropdown
+
+    function toggleProfileMenu() {
+        document.getElementById("profile-menu").classList.toggle("show");
+    }
+
+    // Set the user's name dynamically
+    document.addEventListener("DOMContentLoaded", function() {
+        let username = localStorage.getItem("username") || "User Profile"; 
+        document.getElementById("user-name").textContent = username;
+        document.getElementById("display-username").textContent = username;
+    });
+
+    // Logout function
+    function logout() {
+        alert("Logging out...");
+        localStorage.removeItem("username");
+        window.location.href = "login.html";
+    }
+
+    // Close dropdown if clicking outside
+    window.addEventListener("click", function(event) {
+        let profileContainer = document.querySelector(".profile-container");
+        let profileMenu = document.getElementById("profile-menu");
+
+        if (!profileContainer.contains(event.target)) {
+            profileMenu.classList.remove("show");
+        }
+    });
+
+    // BMI Calculation Logic
     document.getElementById('bmiForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      window.location.href = 'category.html';
+
+      let height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to meters
+      let weight = parseFloat(document.getElementById('weight').value);
+
+      if (!height || !weight || height <= 0 || weight <= 0) {
+        alert("Please enter valid height and weight values.");
+        return;
+      }
+
+      let bmi = (weight / (height * height)).toFixed(1); // BMI formula
+      let status = "";
+
+      if (bmi < 18.5) {
+        status = "Underweight";
+      } else if (bmi >= 18.5 && bmi < 24.9) {
+        status = "Normal Weight";
+      } else if (bmi >= 25 && bmi < 29.9) {
+        status = "Overweight";
+      } else {
+        status = "Obese";
+      }
+
+      // Display BMI value and status
+      document.getElementById("bmi-value").textContent = bmi;
+      document.getElementById("bmi-status").textContent = status;
     });
+    document.querySelector('.categoriesPage').addEventListener('click', function() {
+      window.location.href = './category.html'; })
   </script>
 </body>
 </html>
