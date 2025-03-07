@@ -15,6 +15,15 @@
                 <li><a href="../dashboard.html">Dashboard</a></li>
                 <li><a href="../about.html">About</a></li>
             </ul>
+
+            <div class="profile-container" onclick="toggleProfileMenu()">
+                <span class="profile-name" id="user-name">User Profile</span>
+                <div class="profile-menu" id="profile-menu">
+                    <p id="display-username"></p>
+                    <a href="dashboard.html">Dashboard</a>
+                    <button onclick="logout()">Logout</button>
+                </div>
+              </div>
         </nav>
     </header>
     
@@ -110,9 +119,9 @@ function loadWorkoutStatus() {
     const selectedDay = document.getElementById("day-name").innerText;
     let workoutData = JSON.parse(localStorage.getItem("workoutStats")) || {};
 
-    if (workoutData[selectedDay]) {
-        alert(`You've already completed the workout for ${selectedDay}!`);
-    }
+    // if (workoutData[selectedDay]) {
+    //     alert(`You've already completed the workout for ${selectedDay}!`);
+    // }
 }
 
     </script>
